@@ -17,6 +17,7 @@ namespace SmartHome.HoloLens
         Node heaterNode;
         Node heaterNodeSave;
         Node environmentNode;
+        bool IsXRay = true;
 		SpatialCursor cursor;
 		Material material;
         Guid SessionID;
@@ -103,12 +104,12 @@ namespace SmartHome.HoloLens
             await RegisterCortanaCommands(new Dictionary<string, Action>() {
                 { "place outlet", PlaceOutletModel}
                 , {"remove outlet", RemoveOutlet}
-                , {"DEBUG", () => {
-                    if (material.Name == "")
+                , {"X RAY", () =>
+                {
+
+                    if (material.Name.Contains("DEBUG"))
                     {
                         material = Material.FromColor(Color.Blue, true);
-                        material.Name = "BLUE";
-
                         Color startColor = Color.Blue;
                         Color endColor = new Color(0.8f, 0.8f, 0.8f);
                         material.FillMode = FillMode.Wireframe; // wireframe ? FillMode.Wireframe : FillMode.Solid;
@@ -119,7 +120,49 @@ namespace SmartHome.HoloLens
                     } else
                     {
                         material = Material.FromColor(Color.Transparent, true);
-                        material.Name = "";
+                    }
+
+
+                    if (IsXRay)
+                    {  //TOGGLE XRAY
+
+                        material.SetTechnique(0, CoreAssets.Techniques.NoTextureUnlitVCol, 1, 1);  //UNCOMMENT TO DISABLE SEEING THROUGH WALLS
+                        IsXRay = false;
+                    } else
+                    {
+                        material.Name = material.Name + "XRAY";
+                        IsXRay = true;
+                    }
+                    Task.Run(() => {
+                        foreach (Node surface in environmentNode.Children)
+                        {
+                            surface.GetComponent<StaticModel>().SetMaterial(material);
+                        }
+                        });
+                    }
+                }
+                , {"DEBUG", () => {
+                    if (material.Name.Contains("DEBUG"))
+                    { //TOGGLE DEBUG
+                        material = Material.FromColor(Color.Transparent, true);
+                        material.Name = material.Name.Replace("DEBUG", "");
+                    } else
+                    {
+                        material = Material.FromColor(Color.Blue, true);
+                        material.Name = material.Name + "DEBUG";
+
+                        Color startColor = Color.Blue;
+                        Color endColor = new Color(0.8f, 0.8f, 0.8f);
+                        material.FillMode = FillMode.Wireframe; // wireframe ? FillMode.Wireframe : FillMode.Solid;
+                        var specColorAnimation = new ValueAnimation();
+                        specColorAnimation.SetKeyFrame(0.0f, startColor);
+                        specColorAnimation.SetKeyFrame(1.5f, endColor);
+                        material.SetShaderParameterAnimation("MatDiffColor", specColorAnimation, WrapMode.Once, 1.0f);
+                    }
+
+                    if (IsXRay)
+                    {
+                        material.SetTechnique(0, CoreAssets.Techniques.NoTextureUnlitVCol, 1, 1);  //UNCOMMENT TO DISABLE SEEING THROUGH WALLS
                     }
                     Task.Run(() => {
                         foreach (Node surface in environmentNode.Children)
@@ -236,7 +279,7 @@ namespace SmartHome.HoloLens
                     }
                 }
 
-                nodeOutlet.Position += (result.Value.Normal * 0.25f);
+                nodeOutlet.Position -= (result.Value.Normal * 0.25f);
 
                 nodeOutlet.SetScale(.5f);
 
