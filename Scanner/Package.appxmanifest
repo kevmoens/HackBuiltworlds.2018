@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" xmlns:uap2="http://schemas.microsoft.com/appx/manifest/uap/windows10/2" IgnorableNamespaces="uap mp uap2">
   <Identity Name="SmartHome" Publisher="CN=Egor" Version="1.0.0.0" />
-  <mp:PhoneIdentity PhoneProductId="bcaf243a-e17d-4aea-ab93-4bf965b64647" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <mp:PhoneIdentity PhoneProductId="a9a4ad16-2ce7-4536-94a9-407a62e84b75" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>SmartHome</DisplayName>
-    <PublisherDisplayName>Egor</PublisherDisplayName>
+    <PublisherDisplayName>Kevin</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
   <Dependencies>
@@ -14,7 +14,7 @@
     <Resource Language="x-generate" />
   </Resources>
   <Applications>
-    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="SmartHome.AppView">
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="SmartHome">
       <uap:VisualElements DisplayName="SmartHome" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="SmartHome" BackgroundColor="#464646">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png">
         </uap:DefaultTile>
@@ -23,12 +23,12 @@
     </Application>
   </Applications>
   <Capabilities>
+    <Capability Name="internetClientServer" />
     <Capability Name="internetClient" />
     <Capability Name="privateNetworkClientServer" />
-    <Capability Name="internetClientServer" />
     <uap:Capability Name="picturesLibrary" />
     <uap2:Capability Name="spatialPerception" />
-    <DeviceCapability Name="webcam" />
     <DeviceCapability Name="microphone" />
+    <DeviceCapability Name="webcam" />
   </Capabilities>
 </Package>

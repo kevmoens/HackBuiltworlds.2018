@@ -276,17 +276,6 @@
           "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
         }
       },
-      "rda.SocketsForPCL/2.0.2": {
-        "type": "package",
-        "compile": {
-          "lib/win8/Sockets.Plugin.Abstractions.dll": {},
-          "lib/win8/Sockets.Plugin.dll": {}
-        },
-        "runtime": {
-          "lib/win8/Sockets.Plugin.Abstractions.dll": {},
-          "lib/win8/Sockets.Plugin.dll": {}
-        }
-      },
       "System.AppContext/4.0.0": {
         "type": "package",
         "dependencies": {
@@ -1904,7 +1893,7 @@
           }
         }
       },
-      "UrhoSharp.HoloLens/1.1.231": {
+      "UrhoSharp.HoloLens/1.2.4.3": {
         "type": "package",
         "compile": {
           "lib/uap10.0/Urho.dll": {}
@@ -1935,22 +1924,8 @@
           "build/netstandard1.0/Xamarin.Forms.targets": {}
         }
       },
-      "ZXing.Net.Mobile/2.1.47": {
-        "type": "package",
-        "compile": {
-          "lib/UAP10/ZXing.Net.Mobile.Core.dll": {},
-          "lib/UAP10/ZXingNetMobile.dll": {},
-          "lib/UAP10/zxing.portable.dll": {}
-        },
-        "runtime": {
-          "lib/UAP10/ZXing.Net.Mobile.Core.dll": {},
-          "lib/UAP10/ZXingNetMobile.dll": {},
-          "lib/UAP10/zxing.portable.dll": {}
-        }
-      },
-      "SharedStd/1.0.0": {
-        "type": "project",
-        "framework": "Unsupported,Version=v0.0"
+      "Shared/1.0.0": {
+        "type": "project"
       }
     },
     "UAP,Version=v10.0.10240/win10-x86": {
@@ -2226,17 +2201,6 @@
         },
         "runtime": {
           "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
-        }
-      },
-      "rda.SocketsForPCL/2.0.2": {
-        "type": "package",
-        "compile": {
-          "lib/win8/Sockets.Plugin.Abstractions.dll": {},
-          "lib/win8/Sockets.Plugin.dll": {}
-        },
-        "runtime": {
-          "lib/win8/Sockets.Plugin.Abstractions.dll": {},
-          "lib/win8/Sockets.Plugin.dll": {}
         }
       },
       "System.AppContext/4.0.0": {
@@ -3720,7 +3684,7 @@
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "UrhoSharp.HoloLens/1.1.231": {
+      "UrhoSharp.HoloLens/1.2.4.3": {
         "type": "package",
         "compile": {
           "lib/uap10.0/Urho.dll": {}
@@ -3751,22 +3715,8 @@
           "build/netstandard1.0/Xamarin.Forms.targets": {}
         }
       },
-      "ZXing.Net.Mobile/2.1.47": {
-        "type": "package",
-        "compile": {
-          "lib/UAP10/ZXing.Net.Mobile.Core.dll": {},
-          "lib/UAP10/ZXingNetMobile.dll": {},
-          "lib/UAP10/zxing.portable.dll": {}
-        },
-        "runtime": {
-          "lib/UAP10/ZXing.Net.Mobile.Core.dll": {},
-          "lib/UAP10/ZXingNetMobile.dll": {},
-          "lib/UAP10/zxing.portable.dll": {}
-        }
-      },
-      "SharedStd/1.0.0": {
-        "type": "project",
-        "framework": "Unsupported,Version=v0.0"
+      "Shared/1.0.0": {
+        "type": "project"
       }
     },
     "UAP,Version=v10.0.10240/win10-x86-aot": {
@@ -4021,17 +3971,6 @@
         },
         "runtime": {
           "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
-        }
-      },
-      "rda.SocketsForPCL/2.0.2": {
-        "type": "package",
-        "compile": {
-          "lib/win8/Sockets.Plugin.Abstractions.dll": {},
-          "lib/win8/Sockets.Plugin.dll": {}
-        },
-        "runtime": {
-          "lib/win8/Sockets.Plugin.Abstractions.dll": {},
-          "lib/win8/Sockets.Plugin.dll": {}
         }
       },
       "System.AppContext/4.0.0": {
@@ -5492,7 +5431,7 @@
           "runtimes/win8-aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "UrhoSharp.HoloLens/1.1.231": {
+      "UrhoSharp.HoloLens/1.2.4.3": {
         "type": "package",
         "compile": {
           "lib/uap10.0/Urho.dll": {}
@@ -5523,22 +5462,8 @@
           "build/netstandard1.0/Xamarin.Forms.targets": {}
         }
       },
-      "ZXing.Net.Mobile/2.1.47": {
-        "type": "package",
-        "compile": {
-          "lib/UAP10/ZXing.Net.Mobile.Core.dll": {},
-          "lib/UAP10/ZXingNetMobile.dll": {},
-          "lib/UAP10/zxing.portable.dll": {}
-        },
-        "runtime": {
-          "lib/UAP10/ZXing.Net.Mobile.Core.dll": {},
-          "lib/UAP10/ZXingNetMobile.dll": {},
-          "lib/UAP10/zxing.portable.dll": {}
-        }
-      },
-      "SharedStd/1.0.0": {
-        "type": "project",
-        "framework": "Unsupported,Version=v0.0"
+      "Shared/1.0.0": {
+        "type": "project"
       }
     }
   },
@@ -5742,10 +5667,11 @@
       ]
     },
     "Microsoft.NETCore.UniversalWindowsPlatform/5.0.0": {
-      "sha512": "D0nsAm+yTk0oSSC7E6PcmuuEewBAQbGgIXNcCnRqQ4qLPdQLMjMHg8cilGs3xZgwTRQmMtEn45TAatrU1otWPQ==",
+      "sha512": "SA8wZRApSyRp6vGwF8FY+tk9+NpbOrQIpSAk1koMhEAaohLTOms8XYVhtoqN2wx1ZatR1TPukdJ9demH6BaFAA==",
       "type": "package",
       "path": "microsoft.netcore.universalwindowsplatform/5.0.0",
       "files": [
+        ".signature.p7s",
         "_._",
         "microsoft.netcore.universalwindowsplatform.5.0.0.nupkg.sha512",
         "microsoft.netcore.universalwindowsplatform.nuspec"
@@ -5983,8 +5909,6 @@
       "type": "package",
       "path": "newtonsoft.json/9.0.1",
       "files": [
-        "Newtonsoft.Json.9.0.1.nupkg.sha512",
-        "Newtonsoft.Json.nuspec",
         "lib/net20/Newtonsoft.Json.dll",
         "lib/net20/Newtonsoft.Json.xml",
         "lib/net35/Newtonsoft.Json.dll",
@@ -5999,66 +5923,9 @@
         "lib/portable-net40+sl5+wp80+win8+wpa81/Newtonsoft.Json.xml",
         "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll",
         "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.xml",
+        "newtonsoft.json.9.0.1.nupkg.sha512",
+        "newtonsoft.json.nuspec",
         "tools/install.ps1"
-      ]
-    },
-    "rda.SocketsForPCL/2.0.2": {
-      "sha512": "b37lna72IEvK7JQmRZ6LCIvS7vSS+AjZfKy+KcdVTj88r+lMoLHxT7LXrPcjotrYD3Re40AZudomdaA8zK5+7Q==",
-      "type": "package",
-      "path": "rda.socketsforpcl/2.0.2",
-      "files": [
-        "lib/MonoAndroid10/Sockets.Plugin.Abstractions.dll",
-        "lib/MonoAndroid10/Sockets.Plugin.Abstractions.pdb",
-        "lib/MonoAndroid10/Sockets.Plugin.Abstractions.xml",
-        "lib/MonoAndroid10/Sockets.Plugin.dll",
-        "lib/MonoAndroid10/Sockets.Plugin.pdb",
-        "lib/MonoAndroid10/Sockets.Plugin.xml",
-        "lib/Xamarin.Mac/Sockets.Plugin.Abstractions.dll",
-        "lib/Xamarin.Mac/Sockets.Plugin.Abstractions.xml",
-        "lib/Xamarin.Mac/Sockets.Plugin.dll",
-        "lib/Xamarin.Mac/Sockets.Plugin.xml",
-        "lib/Xamarin.iOS10/Sockets.Plugin.Abstractions.dll",
-        "lib/Xamarin.iOS10/Sockets.Plugin.Abstractions.xml",
-        "lib/Xamarin.iOS10/Sockets.Plugin.dll",
-        "lib/Xamarin.iOS10/Sockets.Plugin.xml",
-        "lib/net45/Sockets.Plugin.Abstractions.dll",
-        "lib/net45/Sockets.Plugin.Abstractions.pdb",
-        "lib/net45/Sockets.Plugin.Abstractions.xml",
-        "lib/net45/Sockets.Plugin.dll",
-        "lib/net45/Sockets.Plugin.pdb",
-        "lib/net45/Sockets.Plugin.xml",
-        "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Sockets.Plugin.Abstractions.dll",
-        "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Sockets.Plugin.Abstractions.pdb",
-        "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Sockets.Plugin.Abstractions.xml",
-        "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Sockets.Plugin.dll",
-        "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Sockets.Plugin.pdb",
-        "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Sockets.Plugin.xml",
-        "lib/win8/Sockets.Plugin.Abstractions.dll",
-        "lib/win8/Sockets.Plugin.Abstractions.pdb",
-        "lib/win8/Sockets.Plugin.Abstractions.xml",
-        "lib/win8/Sockets.Plugin.dll",
-        "lib/win8/Sockets.Plugin.pdb",
-        "lib/win8/Sockets.Plugin.xml",
-        "lib/wp8/Sockets.Plugin.Abstractions.dll",
-        "lib/wp8/Sockets.Plugin.Abstractions.pdb",
-        "lib/wp8/Sockets.Plugin.Abstractions.xml",
-        "lib/wp8/Sockets.Plugin.dll",
-        "lib/wp8/Sockets.Plugin.pdb",
-        "lib/wp8/Sockets.Plugin.xml",
-        "lib/wpa81/Sockets.Plugin.Abstractions.dll",
-        "lib/wpa81/Sockets.Plugin.Abstractions.pdb",
-        "lib/wpa81/Sockets.Plugin.Abstractions.xml",
-        "lib/wpa81/Sockets.Plugin.dll",
-        "lib/wpa81/Sockets.Plugin.pdb",
-        "lib/wpa81/Sockets.Plugin.xml",
-        "linqpad-samples/Tcp/FileOrder.txt",
-        "linqpad-samples/Tcp/Objects.linq",
-        "linqpad-samples/Tcp/Strings.linq",
-        "linqpad-samples/Tcp/TcpSocketClient.linq",
-        "linqpad-samples/Tcp/TcpSocketListener.linq",
-        "linqpad-samples/Udp/Basics.linq",
-        "rda.socketsforpcl.2.0.2.nupkg.sha512",
-        "rda.socketsforpcl.nuspec"
       ]
     },
     "System.AppContext/4.0.0": {
@@ -6202,10 +6069,11 @@
       ]
     },
     "System.Collections.Specialized/4.0.0": {
-      "sha512": "poJFwQCUOoXqvdoGxx+3p8Z63yawcYKPBSFP67Z2jICeOINvEIQZN7mVOAnC7gsVF0WU+A2wtVwfhagC7UCgAg==",
+      "sha512": "8nVYv2PYZFiixVyP34Blm1O1jpAaSJr8U3OySUi4PqbiVFV7OoguRZkcXMbahY8ZVLzQqCfowxSgkrb+srV+TQ==",
       "type": "package",
       "path": "system.collections.specialized/4.0.0",
       "files": [
+        ".signature.p7s",
         "lib/MonoAndroid10/_._",
         "lib/MonoTouch10/_._",
         "lib/dotnet/System.Collections.Specialized.dll",
@@ -6327,10 +6195,11 @@
       ]
     },
     "System.Data.Common/4.0.0": {
-      "sha512": "SA7IdoTWiImVr0exDM68r0mKmR4f/qFGxZUrJQKu4YS7F+3afWzSOCezHxWdevQ0ONi4WRQsOiv+Zf9p8H0Feg==",
+      "sha512": "ALikPnkeUNlJc/4IZsajYP+5K8+9OebyAeFc2waUWCdDFY1toicKjZiUpkyuEv8Z23RlGoCiUccqizJcrjzhRg==",
       "type": "package",
       "path": "system.data.common/4.0.0",
       "files": [
+        ".signature.p7s",
         "lib/MonoAndroid10/_._",
         "lib/MonoTouch10/_._",
         "lib/dotnet/System.Data.Common.dll",
@@ -6831,10 +6700,11 @@
       ]
     },
     "System.IO.IsolatedStorage/4.0.0": {
-      "sha512": "d5KimUbZ49Ki6A/uwU+Iodng+nhJvpRs7hr/828cfeXC02LxUiggnRnAu+COtWcKvJ2YbBmAGOcO4GLK4fX1+w==",
+      "sha512": "YyGYqYxbqd8drjaCALFIsED7aMV04NzWACUYlcn/qTsSyJ7Nt3abj7Sdm51ZWlqsewsyiqMYx7IFbZScZEJIlg==",
       "type": "package",
       "path": "system.io.isolatedstorage/4.0.0",
       "files": [
+        ".signature.p7s",
         "lib/MonoAndroid10/_._",
         "lib/MonoTouch10/_._",
         "lib/netcore50/System.IO.IsolatedStorage.dll",
@@ -7049,10 +6919,11 @@
       ]
     },
     "System.Net.Http.Rtc/4.0.0": {
-      "sha512": "PlE+oJgXdbxPmZYR6GBywRkyIPovjB1Y0SYHizj2Iflgu80uJQC4szl9gue4rKI2FgXiEbj9JL7wL5K3mp9HAQ==",
+      "sha512": "mZiaMWNsimIwleHrwog7EhThKiXq/6v65nMIoUBI70yeBSs0a6pmOmYazUzMGvwWYO9krDrXosO5CtJG3QraEA==",
       "type": "package",
       "path": "system.net.http.rtc/4.0.0",
       "files": [
+        ".signature.p7s",
         "lib/netcore50/System.Net.Http.Rtc.dll",
         "lib/win8/_._",
         "ref/dotnet/System.Net.Http.Rtc.dll",
@@ -7145,10 +7016,11 @@
       ]
     },
     "System.Net.Requests/4.0.10": {
-      "sha512": "A6XBR7TztiIQg6hx7VGfbBKmRTAavUERm2E7pmNz/gZeGvwyP0lcKHZxylJtNVKj7DPwr91bD87oLY6zZYntcg==",
+      "sha512": "NQtNVR+dEvUgxQUO48ImSqybkHKoLbh+Oluf6GicUZtnwh2wxvOv05jXJ2sSnrDpXkbhJUC5RZGU/kOrmHmMEg==",
       "type": "package",
       "path": "system.net.requests/4.0.10",
       "files": [
+        ".signature.p7s",
         "lib/MonoAndroid10/_._",
         "lib/MonoTouch10/_._",
         "lib/dotnet/System.Net.Requests.dll",
@@ -7176,10 +7048,11 @@
       ]
     },
     "System.Net.Sockets/4.0.0": {
-      "sha512": "7bBNLdO6Xw0BGyFVSxjloGXMvsc3qQmW+70bYMLwHEAVivMK8zx+E7XO8CeJnAko2mFj6R402E798EGYUksFcQ==",
+      "sha512": "aNobLHVDaBcraUhWQ2u/uiijlDvQgrDycw/ECKPbrHMTwwcxu7SZ2hu1iKQFOiZxT62JyUJ/nZIEsiBGDBvfcA==",
       "type": "package",
       "path": "system.net.sockets/4.0.0",
       "files": [
+        ".signature.p7s",
         "lib/MonoAndroid10/_._",
         "lib/MonoTouch10/_._",
         "lib/net46/System.Net.Sockets.dll",
@@ -7207,10 +7080,11 @@
       ]
     },
     "System.Net.WebHeaderCollection/4.0.0": {
-      "sha512": "IsIZAsHm/yK7R/XASnEc4EMffFLIMgYchG3/zJv6B4LwMnXZwrVlSPpNbPgEVb0lSXyztsn7A6sIPAACQQ2vTQ==",
+      "sha512": "Ti36OdSGWH/q/nc/IwTv9ColnLjOF1W0tpfMYFG3+7EhLpKeRpQal/tyzyLoh5t6H8UxgV08Cf3nk4llmfMtTQ==",
       "type": "package",
       "path": "system.net.webheadercollection/4.0.0",
       "files": [
+        ".signature.p7s",
         "lib/MonoAndroid10/_._",
         "lib/MonoTouch10/_._",
         "lib/dotnet/System.Net.WebHeaderCollection.dll",
@@ -7259,10 +7133,11 @@
       ]
     },
     "System.Numerics.Vectors.WindowsRuntime/4.0.0": {
-      "sha512": "Ly7GvoPFZq6GyfZpfS0E7uCk1cinl5BANAngXVuau3lD2QqZJMHitzlPv6n1FlIn6krfv99X2IPkIaVzUwDHXA==",
+      "sha512": "n0BXnQKuCWmwxrOOstqypa+50Rxg5rDojNWWrYZsTm3UIA4bo7/hM6VUXCvi4Zi1dkHt3iEzpm8WwxsVlVqT+A==",
       "type": "package",
       "path": "system.numerics.vectors.windowsruntime/4.0.0",
       "files": [
+        ".signature.p7s",
         "lib/dotnet/System.Numerics.Vectors.WindowsRuntime.dll",
         "system.numerics.vectors.windowsruntime.4.0.0.nupkg.sha512",
         "system.numerics.vectors.windowsruntime.nuspec"
@@ -7300,10 +7175,11 @@
       ]
     },
     "System.Private.DataContractSerialization/4.0.0": {
-      "sha512": "uQvzoXHXHn/9YqUmPtgD8ZPJIlBuuL3QHegbuik97W/umoI28fOnGLnvjRHhju1VMWvFLRQoh7uZkBaoZ+KpVQ==",
+      "sha512": "gh7YjlADQcdNl++BPyrAX+xKwJ5BztiPiNxyH0/DefQ+Jk81aXcDlEASU6DT3T76QWKcDAnA1l2ml/SbvkpHrQ==",
       "type": "package",
       "path": "system.private.datacontractserialization/4.0.0",
       "files": [
+        ".signature.p7s",
         "lib/DNXCore50/System.Private.DataContractSerialization.dll",
         "lib/netcore50/System.Private.DataContractSerialization.dll",
         "ref/dnxcore50/_._",
@@ -7328,10 +7204,11 @@
       ]
     },
     "System.Private.ServiceModel/4.0.0": {
-      "sha512": "cm2wEa1f9kuUq/2k8uIwepgZJi5HdxXSnjGQIeXmAb7RaWfZPEC/iamv9GJ67b5LPnCZHR0KvtFqh82e8AAYSw==",
+      "sha512": "fKy2QlUjyBN/pTRyTitJ1UF7HP0tyJsJN/M4rHpUS6dhz5cKu3SOvcP7+WDSbi1eHP9DYWYorejFYPz0Ylutqw==",
       "type": "package",
       "path": "system.private.servicemodel/4.0.0",
       "files": [
+        ".signature.p7s",
         "lib/DNXCore50/System.Private.ServiceModel.dll",
         "lib/netcore50/System.Private.ServiceModel.dll",
         "ref/dnxcore50/_._",
@@ -7388,10 +7265,11 @@
       ]
     },
     "System.Reflection.Context/4.0.0": {
-      "sha512": "Gz4sUHHFd/52RjHccSHbOXdujJEWKfL3gIaA+ekxvQaQfJGbI2tPzA0Uv3WTCTDRGHgtoNq5WS9E007Dt4P/VQ==",
+      "sha512": "b3KytIh2/chlqGQ8TxxvZBoiJWXt3vVk7eXAKBY4nrFt1Ierx402ocKqpwEzJHjMfBWrVDEwW6UjtCeZKcl0eg==",
       "type": "package",
       "path": "system.reflection.context/4.0.0",
       "files": [
+        ".signature.p7s",
         "lib/net45/_._",
         "lib/netcore50/System.Reflection.Context.dll",
         "lib/win8/_._",
@@ -7867,10 +7745,11 @@
       ]
     },
     "System.Runtime.Serialization.Json/4.0.0": {
-      "sha512": "emhWMQP3sdtkAhD0TOeP3FfjS57sfQMQ2sqA6f2Yj5Gd9jkHV4KsQ2TsoJjghca6d8fur7+REQ6ILBXVdGf/0g==",
+      "sha512": "y6VHylbwAXUaj1wJrnVlxeC2AfLAAtqmo8FP3BgI32rdi5Mob0naW9jvN1lgRCwoqDOn3pIg9tN+6T4ruHXClg==",
       "type": "package",
       "path": "system.runtime.serialization.json/4.0.0",
       "files": [
+        ".signature.p7s",
         "lib/DNXCore50/System.Runtime.Serialization.Json.dll",
         "lib/net45/_._",
         "lib/netcore50/System.Runtime.Serialization.Json.dll",
@@ -7900,10 +7779,11 @@
       ]
     },
     "System.Runtime.Serialization.Primitives/4.0.10": {
-      "sha512": "NPc8DZIomf5tGjYtz/KTHI01IPcVlypfhCux32AbLPDjTotdvL8TpKRwMyQJ6Kh08yprRVH7uBD1PdJiuoFzag==",
+      "sha512": "bKHkZi9fqePdZZtWNTX8AgICm57fembr/XNoKwBvrX1Ha8FypwDALjYRomI++efVl6f1d/YHTHyFrRx260Qe0g==",
       "type": "package",
       "path": "system.runtime.serialization.primitives/4.0.10",
       "files": [
+        ".signature.p7s",
         "lib/MonoAndroid10/_._",
         "lib/MonoTouch10/_._",
         "lib/dotnet/System.Runtime.Serialization.Primitives.dll",
@@ -7931,10 +7811,11 @@
       ]
     },
     "System.Runtime.Serialization.Xml/4.0.10": {
-      "sha512": "xsy7XbH8RTpKoDPNcibSGCOpujsmwUmOWAby3PssqkZFpLBXUbDO2s6JKITRjxejET2g0PK8t+mdIvu3xmUuKA==",
+      "sha512": "CQR/X6Y0oOkXU4bY66OdLARwR2RBX0weoAxklN9UOOaF7DV8w8Ty006KKJiexxK+dzklHFcVe9K3iedb1C7KxA==",
       "type": "package",
       "path": "system.runtime.serialization.xml/4.0.10",
       "files": [
+        ".signature.p7s",
         "lib/DNXCore50/System.Runtime.Serialization.Xml.dll",
         "lib/MonoAndroid10/_._",
         "lib/MonoTouch10/_._",
@@ -7992,10 +7873,11 @@
       ]
     },
     "System.Runtime.WindowsRuntime.UI.Xaml/4.0.0": {
-      "sha512": "2GY3fkXBMQOyyO9ovaH46CN6MD2ck/Gvk4VNAgVDvtmfO3HXYFNd+bB05WhVcJrHKbfKZNwfwZKpYZ+OsVFsLw==",
+      "sha512": "NHok9nrNJlTdLtE7eJNDDI39g3rKBExzHFSGr33YoMrXpDB41SS7Q7uJ9lPa7Abk35vNtReTdpk0HFFkh+o7tw==",
       "type": "package",
       "path": "system.runtime.windowsruntime.ui.xaml/4.0.0",
       "files": [
+        ".signature.p7s",
         "lib/netcore50/System.Runtime.WindowsRuntime.UI.Xaml.dll",
         "lib/win8/_._",
         "lib/wpa81/_._",
@@ -8082,10 +7964,11 @@
       ]
     },
     "System.ServiceModel.Duplex/4.0.0": {
-      "sha512": "JFeDn+IsiwAVJkNNnM7MLefJOnzYhovaHnjk3lzEnUWkYZJeAKrcgLdK6GE2GNjb5mEV8Pad/E0JcA8eCr3eWQ==",
+      "sha512": "GWrLFlxpXOevTgvOrEWZG28EG65saxqWmk/8AsR257Xp95VjqgWGoTEDJD1tpCjvcwSFZpuEAcSWojN8Kgew3A==",
       "type": "package",
       "path": "system.servicemodel.duplex/4.0.0",
       "files": [
+        ".signature.p7s",
         "lib/DNXCore50/System.ServiceModel.Duplex.dll",
         "lib/net45/_._",
         "lib/netcore50/System.ServiceModel.Duplex.dll",
@@ -8110,10 +7993,11 @@
       ]
     },
     "System.ServiceModel.Http/4.0.10": {
-      "sha512": "Vyl7lmvMlXJamtnDugoXuAgAQGSqtA7omK3zDBYByhbYeBC2hRBchgyXox7e5vEO+29TeB1IpoLWQGb7tO9h6A==",
+      "sha512": "OQrCcQ4wUKxBZpsG/VK6YPkuLEkZlU4Bzdg6u/04w35IrkkkI9Etd/pVFDAwQ6oHgo7NUvGKN49aFCwM11gBfw==",
       "type": "package",
       "path": "system.servicemodel.http/4.0.10",
       "files": [
+        ".signature.p7s",
         "lib/DNXCore50/System.ServiceModel.Http.dll",
         "lib/MonoAndroid10/_._",
         "lib/MonoTouch10/_._",
@@ -8142,10 +8026,11 @@
       ]
     },
     "System.ServiceModel.NetTcp/4.0.0": {
-      "sha512": "lV2Cdcso9jOS0KBtgHZHzTLe/Lx/ERdPcvF4dlepUie6/+BOMYTOgg2C7OdpIjp3fwUNXq8nhU+IilmEyjuf/A==",
+      "sha512": "rGeqlIzuodfLcNMY9gXfT6H8Jqod6hsVlNFO6mEjdeX5nmzYtf2nvtlzaEqoNQeM99E9CxAGr8iuhNVe+WMVIQ==",
       "type": "package",
       "path": "system.servicemodel.nettcp/4.0.0",
       "files": [
+        ".signature.p7s",
         "lib/DNXCore50/System.ServiceModel.NetTcp.dll",
         "lib/net45/_._",
         "lib/netcore50/System.ServiceModel.NetTcp.dll",
@@ -8170,10 +8055,11 @@
       ]
     },
     "System.ServiceModel.Primitives/4.0.0": {
-      "sha512": "uF5VYQWR07LgiZkzUr8qjwvqOaIAfwU566MneD4WuC14d8FLJNsAgCJUYhBGB7COjH7HTqnP9ZFmr6c+L83Stg==",
+      "sha512": "D5zmvq44EYiaPayd/6QrQSTQ2FwOls7PLGDSlf8omKMLwKQ4oEMOI1B+av2oyX+YRhyZaffn3tYES/t6XN/Cpw==",
       "type": "package",
       "path": "system.servicemodel.primitives/4.0.0",
       "files": [
+        ".signature.p7s",
         "lib/DNXCore50/System.ServiceModel.Primitives.dll",
         "lib/net45/_._",
         "lib/netcore50/System.ServiceModel.Primitives.dll",
@@ -8198,10 +8084,11 @@
       ]
     },
     "System.ServiceModel.Security/4.0.0": {
-      "sha512": "sPVzsnd8w/TJsW/4sYA9eIGP+RtlpN0AhKLGKf9ywdGGmHPi0kkuX2mx412dM3GN0e4oifuISwvZqby/sI8Feg==",
+      "sha512": "2eYrBgRlkn0C2u0TpRrkbslAyQZX1xckdxcUccrrcceA69weccRMrPCPOOD77a4qS2Xn1Ez15scMqRR7mk7abg==",
       "type": "package",
       "path": "system.servicemodel.security/4.0.0",
       "files": [
+        ".signature.p7s",
         "lib/DNXCore50/System.ServiceModel.Security.dll",
         "lib/net45/_._",
         "lib/netcore50/System.ServiceModel.Security.dll",
@@ -8259,10 +8146,11 @@
       ]
     },
     "System.Text.Encoding.CodePages/4.0.0": {
-      "sha512": "ZHBTr1AXLjY9OuYR7pKx5xfN6QFye1kgd5QAbGrvfCOu7yxRnJs3VUaxERe1fOlnF0mi/xD/Dvb3T3x3HNuPWQ==",
+      "sha512": "HEc8I8FpERloJan6IRam3URgxTA4H1Eiw99M/eOosdI9QkeYhniaX1E7b4sDAEZVkUtal+y4iPsM+ThP8qH1mQ==",
       "type": "package",
       "path": "system.text.encoding.codepages/4.0.0",
       "files": [
+        ".signature.p7s",
         "lib/MonoAndroid10/_._",
         "lib/MonoTouch10/_._",
         "lib/dotnet/System.Text.Encoding.CodePages.dll",
@@ -8580,10 +8468,11 @@
       ]
     },
     "System.Xml.XmlDocument/4.0.0": {
-      "sha512": "H5qTx2+AXgaKE5wehU1ZYeYPFpp/rfFh69/937NvwCrDqbIkvJRmIFyKKpkoMI6gl9hGfuVizfIudVTMyowCXw==",
+      "sha512": "MKtO0EQc/jmgKJNNcC082YiiCqsrGlrNMjAJMjobHCgXhDlnR/QgaIBx5lgVcJjHSPV55Z0H8eB29Zs+F935Bw==",
       "type": "package",
       "path": "system.xml.xmldocument/4.0.0",
       "files": [
+        ".signature.p7s",
         "lib/MonoAndroid10/_._",
         "lib/MonoTouch10/_._",
         "lib/dotnet/System.Xml.XmlDocument.dll",
@@ -8611,10 +8500,11 @@
       ]
     },
     "System.Xml.XmlSerializer/4.0.10": {
-      "sha512": "OKhE6vruk88z/hl0lmfrMvXteTASgJUagu6PT6S10i9uLbvDR3pTwB6jVgiwa2D2qtTB+eneZbS9jljhPXhTtg==",
+      "sha512": "hnfEHOzjdjPOh1kUlOghJ2N2WR6OjR6IFvUZDVOqLHwJmE6CxDYWL+uj7ScpgNN9ckl49dYWZee+LfmCm80U8w==",
       "type": "package",
       "path": "system.xml.xmlserializer/4.0.10",
       "files": [
+        ".signature.p7s",
         "lib/DNXCore50/System.Xml.XmlSerializer.dll",
         "lib/MonoAndroid10/_._",
         "lib/MonoTouch10/_._",
@@ -8644,25 +8534,27 @@
         "system.xml.xmlserializer.nuspec"
       ]
     },
-    "UrhoSharp.HoloLens/1.1.231": {
-      "sha512": "4uMyqlU/zj8+/1mJkrhIi/9eypIUmIgZTNR/UaqFz97DMfYf/kY4dgP90VF9W3cRnV5O6MaSl7j2Q1G1kgM4UA==",
+    "UrhoSharp.HoloLens/1.2.4.3": {
+      "sha512": "nKEDujce6aNdl0yidijbH6EUoEVPRU6ZEjZp6MfRQru42zeNFrJWZctPujtJpNYNn/g1HgapNhZYT+3lW7yGWA==",
       "type": "package",
-      "path": "urhosharp.hololens/1.1.231",
+      "path": "urhosharp.hololens/1.2.4.3",
       "files": [
+        ".signature.p7s",
         "build/uap10.0/UrhoSharp.HoloLens.targets",
         "lib/uap10.0/Urho.XML",
         "lib/uap10.0/Urho.dll",
         "native/CoreData.pak",
         "native/HoloLens32/mono-holourho.dll",
-        "urhosharp.hololens.1.1.231.nupkg.sha512",
+        "urhosharp.hololens.1.2.4.3.nupkg.sha512",
         "urhosharp.hololens.nuspec"
       ]
     },
     "Xamarin.Forms/2.5.0.91635": {
-      "sha512": "rsEaYnT21VJBmqg/ucUDtKQ9BNbpVMPquPr8Ss3NZ2Y6K2Q75h4T21j7R1hG5MqLfb7DeiHjBv8UnPW7+EPNcw==",
+      "sha512": "yXQR+pcjpbERe1i8tGyB0DgwiUgPDmLAzcqGxMqtVJ1bPbCW3Rif0sKyhCPoBMsTsot3pwhT0wIP7HDV0Qlv6g==",
       "type": "package",
       "path": "xamarin.forms/2.5.0.91635",
       "files": [
+        ".signature.p7s",
         "build/netstandard1.0/Mono.Cecil.Mdb.dll",
         "build/netstandard1.0/Mono.Cecil.Pdb.dll",
         "build/netstandard1.0/Mono.Cecil.Rocks.dll",
@@ -8840,46 +8732,18 @@
         "xamarin.forms.nuspec"
       ]
     },
-    "ZXing.Net.Mobile/2.1.47": {
-      "sha512": "K+7OebNXS7kv6J2edXOWf0B7cu8vE6j6d7DOcbQOHR//YJXFifVwN1m7BfycBkrwO9WClKM2ZZQNTlC6GeOOQA==",
-      "type": "package",
-      "path": "zxing.net.mobile/2.1.47",
-      "files": [
-        "lib/MonoAndroid403/ZXing.Net.Mobile.Core.dll",
-        "lib/MonoAndroid403/ZXingNetMobile.dll",
-        "lib/MonoAndroid403/zxing.portable.dll",
-        "lib/UAP10/ZXing.Net.Mobile.Core.dll",
-        "lib/UAP10/ZXingNetMobile.dll",
-        "lib/UAP10/ZXingNetMobile.pri",
-        "lib/UAP10/ZXingNetMobile/ZXingNetMobile.xr.xml",
-        "lib/UAP10/zxing.portable.dll",
-        "lib/Xamarin.iOS10/ZXing.Net.Mobile.Core.dll",
-        "lib/Xamarin.iOS10/ZXingNetMobile.dll",
-        "lib/Xamarin.iOS10/zxing.portable.dll",
-        "lib/portable-net45+netcore45+wpa81+wp8/ZXing.Net.Mobile.Core.dll",
-        "lib/portable-net45+netcore45+wpa81+wp8/ZXingNetMobile.dll",
-        "lib/portable-net45+netcore45+wpa81+wp8/zxing.portable.dll",
-        "lib/wp8/ZXing.Net.Mobile.Core.dll",
-        "lib/wp8/ZXingNetMobile.dll",
-        "lib/wp8/zxing.portable.dll",
-        "zxing.net.mobile.2.1.47.nupkg.sha512",
-        "zxing.net.mobile.nuspec"
-      ]
-    },
-    "SharedStd/1.0.0": {
+    "Shared/1.0.0": {
       "type": "project",
-      "path": "../SharedStd/SharedStd.csproj",
-      "msbuildProject": "../SharedStd/SharedStd.csproj"
+      "path": "../Shared/Shared.csproj",
+      "msbuildProject": "../Shared/Shared.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "": [
       "Microsoft.NETCore.UniversalWindowsPlatform >= 5.0.0",
       "Newtonsoft.Json >= 9.0.1",
-      "UrhoSharp.HoloLens >= 1.1.231",
-      "Xamarin.Forms >= 2.5.0.91635",
-      "ZXing.Net.Mobile >= 2.1.47",
-      "rda.SocketsForPCL >= 2.0.2"
+      "UrhoSharp.HoloLens >= 1.2.4.3",
+      "Xamarin.Forms >= 2.5.0.91635"
     ],
     "UAP,Version=v10.0.10240": []
   },
@@ -8888,12 +8752,12 @@
   },
   "project": {
     "restore": {
-      "projectUniqueName": "C:\\Code\\Xamarin\\urho-samples\\SmartHome\\Scanner\\SmartHome.HoloLens.csproj",
+      "projectUniqueName": "C:\\code\\HackBuiltworlds.2018\\Scanner\\SmartHome.HoloLens.csproj",
       "projectName": "SmartHome.HoloLens",
-      "projectPath": "C:\\Code\\Xamarin\\urho-samples\\SmartHome\\Scanner\\SmartHome.HoloLens.csproj",
-      "projectJsonPath": "C:\\Code\\Xamarin\\urho-samples\\SmartHome\\Scanner\\project.json",
+      "projectPath": "C:\\code\\HackBuiltworlds.2018\\Scanner\\SmartHome.HoloLens.csproj",
+      "projectJsonPath": "C:\\code\\HackBuiltworlds.2018\\Scanner\\project.json",
       "packagesPath": "C:\\Users\\kevmo\\.nuget\\packages\\",
-      "outputPath": "C:\\Code\\Xamarin\\urho-samples\\SmartHome\\Scanner\\obj\\",
+      "outputPath": "C:\\code\\HackBuiltworlds.2018\\Scanner\\obj\\",
       "projectStyle": "ProjectJson",
       "configFilePaths": [
         "C:\\Users\\kevmo\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -8906,20 +8770,18 @@
       "frameworks": {
         "uap10.0.10240": {
           "projectReferences": {
-            "C:\\Code\\Xamarin\\urho-samples\\SmartHome\\SharedStd\\SharedStd.csproj": {
-              "projectPath": "C:\\Code\\Xamarin\\urho-samples\\SmartHome\\SharedStd\\SharedStd.csproj"
+            "C:\\code\\HackBuiltworlds.2018\\Shared\\Shared.csproj": {
+              "projectPath": "C:\\code\\HackBuiltworlds.2018\\Shared\\Shared.csproj"
             }
           }
         }
       }
     },
     "dependencies": {
-      "Microsoft.NETCore.UniversalWindowsPlatform": "5.0.0",
-      "Newtonsoft.Json": "9.0.1",
-      "rda.SocketsForPCL": "2.0.2",
-      "UrhoSharp.HoloLens": "1.1.231",
-      "Xamarin.Forms": "2.5.0.91635",
-      "ZXing.Net.Mobile": "2.1.47"
+      "Microsoft.NETCore.UniversalWindowsPlatform": "[5.0.0, )",
+      "Newtonsoft.Json": "[9.0.1, )",
+      "UrhoSharp.HoloLens": "[1.2.4.3, )",
+      "Xamarin.Forms": "[2.5.0.91635, )"
     },
     "frameworks": {
       "uap10.0.10240": {}
@@ -8932,34 +8794,5 @@
         "#import": []
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1201",
-      "level": "Error",
-      "message": "Project SharedStd is not compatible with uap10.0.10240 (UAP,Version=v10.0.10240). Project SharedStd supports: netstandard2.0 (.NETStandard,Version=v2.0)",
-      "libraryId": "SharedStd",
-      "targetGraphs": [
-        "UAP,Version=v10.0.10240"
-      ]
-    },
-    {
-      "code": "NU1201",
-      "level": "Error",
-      "message": "Project SharedStd is not compatible with uap10.0.10240 (UAP,Version=v10.0.10240) / win10-x86. Project SharedStd supports: netstandard2.0 (.NETStandard,Version=v2.0)",
-      "libraryId": "SharedStd",
-      "targetGraphs": [
-        "UAP,Version=v10.0.10240/win10-x86"
-      ]
-    },
-    {
-      "code": "NU1201",
-      "level": "Error",
-      "message": "Project SharedStd is not compatible with uap10.0.10240 (UAP,Version=v10.0.10240) / win10-x86-aot. Project SharedStd supports: netstandard2.0 (.NETStandard,Version=v2.0)",
-      "libraryId": "SharedStd",
-      "targetGraphs": [
-        "UAP,Version=v10.0.10240/win10-x86-aot"
-      ]
-    }
-  ]
+  }
 }

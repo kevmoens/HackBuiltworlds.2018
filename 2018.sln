@@ -15,12 +15,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csp
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Server", "Server", "{9A94F3A2-D690-4474-B2B8-33B091F0081A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "08_MixedContent", "08_MixedContent\08_MixedContent.csproj", "{949678AC-9F53-422E-98DA-8457636E520D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartHome.HoloLens", "08_MixedContent\SmartHome.HoloLens.csproj", "{949678AC-9F53-422E-98DA-8457636E520D}"
 EndProject
 Global
-	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		Clients\SmartHouse\SmartHouse.projitems*{20213f5f-7f2e-42ac-8634-71ce12a234c3}*SharedItemsImports = 13
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU
 		Ad-Hoc|ARM = Ad-Hoc|ARM

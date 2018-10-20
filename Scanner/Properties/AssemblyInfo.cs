@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("SmartHome.HoloLens")]
+[assembly: AssemblyTitle("Mutant")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 
-[assembly: AssemblyProduct("SmartHome.HoloLens")]
+[assembly: AssemblyProduct("Mutant")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 
 [assembly: AssemblyTrademark("")]

@@ -5,6 +5,6 @@
   </PropertyGroup>
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <Import Project="$(NuGetPackageRoot)xamarin.forms\2.5.0.91635\build\netstandard1.0\Xamarin.Forms.targets" Condition="Exists('$(NuGetPackageRoot)xamarin.forms\2.5.0.91635\build\netstandard1.0\Xamarin.Forms.targets')" />
-    <Import Project="$(NuGetPackageRoot)urhosharp.hololens\1.1.231\build\uap10.0\UrhoSharp.HoloLens.targets" Condition="Exists('$(NuGetPackageRoot)urhosharp.hololens\1.1.231\build\uap10.0\UrhoSharp.HoloLens.targets')" />
+    <Import Project="$(NuGetPackageRoot)urhosharp.hololens\1.2.4.3\build\uap10.0\UrhoSharp.HoloLens.targets" Condition="Exists('$(NuGetPackageRoot)urhosharp.hololens\1.2.4.3\build\uap10.0\UrhoSharp.HoloLens.targets')" />
   </ImportGroup>
 </Project>
