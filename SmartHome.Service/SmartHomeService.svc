@@ -1,1 +1,0 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Service="SmartHome.Service.SmartHomeService" CodeBehind="SmartHomeService.svc.cs" %>
