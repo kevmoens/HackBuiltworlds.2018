@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController, NavParams } from 'ionic-angular';
 import { ApiProvider } from '../../providers/api/api';
-import { TransformReview } from '../../models/api';
 
 @Component({
   selector: 'page-ratetransform',
