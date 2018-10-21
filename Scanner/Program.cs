@@ -14,8 +14,10 @@ using Shared;
 namespace SmartHome.HoloLens
 {
 	internal class Program
-	{
-	    [MTAThread]
+    {
+        public static ScannerApp UrhoApp;
+        public static MainPage XamlPage;
+        [MTAThread]
 	    static void Main()
 	    {
             // Start XAML app instead of urho app
@@ -29,12 +31,62 @@ namespace SmartHome.HoloLens
 
     public class ScannerApp : HoloApplication
     {
+        public Node lastNode;
+        private bool _ShowElectrical = true;
+        public bool ShowElectrical { get { return _ShowElectrical; }
+            set {
+                _ShowElectrical = value;
+                try
+                {
+                    float size;
+                    if (_ShowElectrical)
+                    {
+                        size = 0.1f;
+                    }
+                    else
+                    {
+                        size = 0f;
+                    }
+                    foreach (Node item in ElectricalBaseNode.Children)
+                    {
+                        item.SetScale(size);
+                    }
+                }
+                catch { }
+            }
+        }
+
+        private bool _ShowPlumbing = true;
+        public bool ShowPlumbing {
+            get { return _ShowPlumbing; }
+            set {
+                _ShowPlumbing = value;
+                try
+                {
+                    float size;
+                    if (_ShowPlumbing)
+                    {
+                        size = .1f;
+                    }
+                    else
+                    {
+                        size = 0f;
+                    }
+                    foreach (Node item in PlumbingBaseNode.Children)
+                    {
+                        item.SetScale(size);
+                    }
+                } catch { }
+            }
+        }
+        Node ElectricalBaseNode;
+        Node PlumbingBaseNode;
         Node menuNode;
         Node outletNode;
         Node heaterNode;
         Node heaterNodeSave;
         Node environmentNode;
-        bool IsXRay = true;
+        static bool IsXRay = true;
         SpatialCursor cursor;
         Material material;
         Guid SessionID;
@@ -46,6 +98,7 @@ namespace SmartHome.HoloLens
 
         public ScannerApp(ApplicationOptions opts) : base(opts)
         {
+            Program.UrhoApp = this;
         }
 
 
@@ -66,9 +119,13 @@ namespace SmartHome.HoloLens
             material = Material.FromColor(Color.Transparent, true);
             //material.SetTechnique(0, CoreAssets.Techniques.NoTextureUnlitVCol, 1, 1);  //UNCOMMENT TO DISABLE SEEING THROUGH WALLS
 
+
+            ElectricalBaseNode = Scene.CreateChild("ELECTRICAL");
+            PlumbingBaseNode = Scene.CreateChild("PLUMBING");
+
             Action placeOutlet = async delegate ()
             {
-                var outletBase = Scene.CreateChild("OUTLET");
+                var outletBase = ElectricalBaseNode.CreateChild("OUTLET");
                 outletBase.Scale = new Vector3(1, 1f, 1) / 10;
                 outletBase.Position = cursor.CursorNode.WorldPosition;
                 outletBase.SetDirection(cursor.CursorNode.WorldDirection);
@@ -80,7 +137,7 @@ namespace SmartHome.HoloLens
 
                 nodeOutlet.Rotation = new Quaternion(0, 270, -90); // cursor.CursorNode.Rotation.ToEulerAngles().Y, 0);
                 //nodeOutlet.RotateAround(new Vector3(0, 0, 0), new Quaternion(0, 270, 90), TransformSpace.Local); //KMM
-
+                lastNode = nodeOutlet;
 
                 nodeOutlet.Position = new Vector3(0, 0, -.25f);
                 nodeOutlet.SetScale(.5f);
@@ -108,20 +165,21 @@ namespace SmartHome.HoloLens
 
             Action RemoveOutlet = delegate ()
             {
-                if (outletNode != null)
+                if (lastNode != null)
                 {
                     try
                     {
-                        outletNode.Remove();
-                        outletNode.Dispose();
-                        outletNode = null;
+                        lastNode.Remove();
+                        lastNode.Dispose();
+                        lastNode = null;
                     }
                     catch { }
                 }
             };
             await RegisterCortanaCommands(new Dictionary<string, Action>() {
                 { "place outlet", PlaceOutletModel}
-                , {"remove outlet", RemoveOutlet}
+                , {"remove", RemoveOutlet}
+                , {"place plumbing", PlacePipeModel}
                 , {"X RAY", () =>
                 {
 
@@ -286,7 +344,7 @@ namespace SmartHome.HoloLens
             if (result != null)
             {
 
-                var outletBase = Scene.CreateChild("OUTLET");
+                var outletBase = ElectricalBaseNode.CreateChild("OUTLET");
                 outletBase.Scale = new Vector3(1, 1f, 1) / 10;
                 outletBase.Position = result.Value.Position;
 
@@ -303,11 +361,14 @@ namespace SmartHome.HoloLens
                         nodeOutlet.Rotation = Quaternion.FromRotationTo(Vector3.Right, result.Value.Normal);
                     }
                 }
+                //var neg = result.Value.Node.Rotation;
+                //nodeOutlet.Rotation = new Quaternion(neg.X, neg.Y, neg.Z, neg.W * -1); //Opposite of the rotation of the Node, if we use result.Value.Position
+
 
                 nodeOutlet.Position -= (result.Value.Normal * 0.25f);
 
                 nodeOutlet.SetScale(.5f);
-
+                lastNode = nodeOutlet;
 
                 var modelOutlet = nodeOutlet.CreateComponent<StaticModel>();
                 modelOutlet.Model = ResourceCache.GetModel("Data\\outlet.mdl");
@@ -334,7 +395,7 @@ namespace SmartHome.HoloLens
             if (result != null)
             {
 
-                var outletBase = Scene.CreateChild("OUTLET");
+                var outletBase = ElectricalBaseNode.CreateChild("OUTLET");
                 outletBase.Scale = new Vector3(1, 1f, 1) / 10;
                 outletBase.Position = result.Value.Position;
 
@@ -351,11 +412,14 @@ namespace SmartHome.HoloLens
                         nodeOutlet.Rotation = Quaternion.FromRotationTo(Vector3.Right, result.Value.Normal);
                     }
                 }
+                //var neg = result.Value.Node.Rotation;
+                //nodeOutlet.Rotation = new Quaternion(neg.X, neg.Y, neg.Z, neg.W * -1); //Opposite of the rotation of the Node, if we use result.Value.Position
+
 
                 nodeOutlet.Position += (result.Value.Normal * 0.25f);
 
                 nodeOutlet.SetScale(.5f);
-
+                lastNode = nodeOutlet;
 
                 var modelOutlet = nodeOutlet.CreateComponent<StaticModel>();
                 modelOutlet.Model = ResourceCache.GetModel("Data\\cube.mdl");
@@ -374,19 +438,58 @@ namespace SmartHome.HoloLens
 
 
 
-        private static void WaterHeaterData(Node heaterBase, Quaternion rotation, Vector3 position, string Text)
+
+        async void PlacePipeModel()
         {
-            var nodeHeaterDesc = heaterBase.CreateChild();
-            nodeHeaterDesc.Rotation = rotation;
-            nodeHeaterDesc.Position = position;
-            nodeHeaterDesc.SetScale(20f);
-            var text = nodeHeaterDesc.CreateComponent<Text3D>();
-            text.Text = Text;
-            text.HorizontalAlignment = HorizontalAlignment.Center;
-            text.VerticalAlignment = VerticalAlignment.Center;
-            text.TextAlignment = HorizontalAlignment.Center;
-            text.SetFont(CoreAssets.Fonts.AnonymousPro, 20);
-            text.SetColor(Color.Green);
+
+
+            Ray cameraRay = LeftCamera.GetScreenRay(0.5f, .5f);
+            var result = Scene.GetComponent<Octree>().RaycastSingle(cameraRay, RayQueryLevel.Triangle, 100, DrawableFlags.Geometry, 0x70000000);
+            if (result != null)
+            {
+
+                var outletBase = PlumbingBaseNode.CreateChild("PIPE");
+                outletBase.SetScale(0.01f);
+                outletBase.Position = result.Value.Position;
+
+                var nodeOutlet = outletBase.CreateChild();
+
+                //if (result.Value.Normal != Vector3.Zero)
+                //{
+                //    if (result.Value.Normal.X != 0)
+                //    {
+                //        nodeOutlet.Rotation = Quaternion.FromRotationTo(Vector3.Back, result.Value.Normal);
+                //    }
+                //    else
+                //    {
+                //        nodeOutlet.Rotation = Quaternion.FromRotationTo(Vector3.Right, result.Value.Normal);
+                //    }
+                //}
+                //var neg = result.Value.Node.Rotation;
+                //nodeOutlet.Rotation = new Quaternion(neg.X, neg.Y, neg.Z, neg.W * -1); //Opposite of the rotation of the Node, if we use result.Value.Position
+
+
+                nodeOutlet.Position -= (result.Value.Normal * 0.25f);
+
+                nodeOutlet.SetScale(.5f);
+                lastNode = nodeOutlet;
+
+                var modelOutlet = nodeOutlet.CreateComponent<StaticModel>();
+                modelOutlet.Model = ResourceCache.GetModel("Data\\LowPressurePipeLayer.mdl");
+
+                var cubeMaterial = Material.FromColor(Color.Gray);
+                modelOutlet.SetMaterial(cubeMaterial);
+
+
+                //Push to UWP
+                var textNode = outletBase.CreateChild("Text");
+                var text = textNode.CreateComponent<Text3D>();
+                BulbAddedDto bulb = new BulbAddedDto { scale_factor = 0, obj_name = "drum", Text = "", ID = outletBase.Name, Position = new Vector3Dto(cursor.CursorNode.WorldPosition.X, cursor.CursorNode.WorldPosition.Y, cursor.CursorNode.WorldPosition.Z), Direction = new Vector3Dto(LeftCamera.Node.WorldDirection.X, LeftCamera.Node.WorldDirection.Y, LeftCamera.Node.WorldDirection.Z) };
+
+                ExistingBulbs.TryAdd(bulb.ID, bulb);
+                //SAVE
+                outletNode = outletBase;
+            }
         }
 
 
@@ -394,72 +497,154 @@ namespace SmartHome.HoloLens
         {
             base.OnUpdate(timeStep);
             DirectionalLight.Node.SetDirection(LeftCamera.Node.Direction);
+
+            HandleMovementByKeyPress(Input, 1f);
+
         }
 
+        private void HandleMovementByKeyPress(Input input, float duration)
+        {
+            Urho.Actions.FiniteTimeAction action = null;
+
+            if (input.GetKeyPress(Urho.Key.W))
+            {
+                action = new MoveBy(duration, new Vector3(0, 0, 1));
+            }
+
+            if (input.GetKeyPress(Urho.Key.S))
+            {
+                action = new MoveBy(duration, new Vector3(0, 0, -1));
+            }
+            if (input.GetKeyPress(Urho.Key.A))
+            {
+                action = new MoveBy(duration, new Vector3(-1, 0, 0));
+            }
+            if (input.GetKeyPress(Urho.Key.D))
+            {
+                action = new MoveBy(duration, new Vector3(1, 0, 0));
+            }
+            if (input.GetKeyPress(Urho.Key.Q))
+            {
+                action = new MoveBy(duration, new Vector3(0, 1, 0));
+            }
+            if (input.GetKeyPress(Urho.Key.E))
+            {
+                action = new MoveBy(duration, new Vector3(0, -1, 0));
+            }
+
+
+            //if (input.GetKeyPress(Urho.Key.K))
+            //{
+            //    boxNode.RunActionsAsync(new RotateBy(duration, 0, 10, 0));
+            //}
+            //if (input.GetKeyPress(Urho.Key.L))
+            //{
+            //    boxNode.RunActionsAsync(new RotateBy(duration, 0, -10, 0));
+            //}
+            //if (input.GetKeyPress(Urho.Key.J))
+            //{
+            //    boxNode.RunActionsAsync(new RotateBy(duration, 10, 0, 0));
+            //}
+            //if (input.GetKeyPress(Urho.Key.I))
+            //{
+            //    boxNode.RunActionsAsync(new RotateBy(duration, 10, 0, 0));
+            //}
+            //if (input.GetKeyPress(Urho.Key.K))
+            //{
+            //    boxNode.RunActionsAsync(new RotateBy(duration, -10, 0, 0));
+            //}
+            //if (input.GetKeyPress(Urho.Key.O))
+            //{
+            //    boxNode.RunActionsAsync(new RotateBy(duration, 0, 0, 10));
+            //}
+            //if (input.GetKeyPress(Urho.Key.U))
+            //{
+            //    boxNode.RunActionsAsync(new RotateBy(duration, 0, 0, -10));
+            //}
+            //if (input.GetKeyPress(Urho.Key.T))
+            //{
+            //    if (box.Color == Urho.Color.Transparent)
+            //    {
+            //        box.Color = Urho.Color.Blue;
+            //    }
+            //    else
+            //    {
+            //        box.Color = Urho.Color.Transparent;
+            //    }
+            //}
+
+
+
+            if (action != null)
+            {
+                //can be awaited
+                lastNode.RunActionsAsync(action);
+            }
+        }
         public async override void OnGestureTapped()
         {
             if (cursor == null)
                 return;
 
 
-            var noteNode = Raycast();
-            if (noteNode != null)
-            {
-                if (ExistingBulbs.ContainsKey(noteNode.Name))
-                {
-                    foreach (var childNode in noteNode.Children)
-                    {
-                        if (childNode.Name == "Text")
-                        {
-                            childNode.Enabled = !childNode.Enabled;
-                            return;
-                        }
-                    }
-                }
-            }
+            //var noteNode = Raycast();
+            //if (noteNode != null)
+            //{
+            //    if (ExistingBulbs.ContainsKey(noteNode.Name))
+            //    {
+            //        foreach (var childNode in noteNode.Children)
+            //        {
+            //            if (childNode.Name == "Text")
+            //            {
+            //                childNode.Enabled = !childNode.Enabled;
+            //                return;
+            //            }
+            //        }
+            //    }
+            //}
 
 
-            var speechRecognizer = new Windows.Media.SpeechRecognition.SpeechRecognizer();
-            // Compile the dictation grammar by default.
-            await speechRecognizer.CompileConstraintsAsync();
-            string speechText = "";
-            // Start recognition.
-            var pos = cursor.CursorNode.WorldPosition;
-            var dir = LeftCamera.Node.WorldDirection;
-            try
-            {
-                Windows.Media.SpeechRecognition.SpeechRecognitionResult speechRecognitionResult = await speechRecognizer.RecognizeAsync();
-                speechText = speechRecognitionResult.Text;
-            }
-            catch
-            {
-                return;
-            }
-            var child = Scene.CreateChild(Guid.NewGuid().ToString());
-            child.Scale = new Vector3(1, 1f, 1) / 10;
+            //var speechRecognizer = new Windows.Media.SpeechRecognition.SpeechRecognizer();
+            //// Compile the dictation grammar by default.
+            //await speechRecognizer.CompileConstraintsAsync();
+            //string speechText = "";
+            //// Start recognition.
+            //var pos = cursor.CursorNode.WorldPosition;
+            //var dir = LeftCamera.Node.WorldDirection;
+            //try
+            //{
+            //    Windows.Media.SpeechRecognition.SpeechRecognitionResult speechRecognitionResult = await speechRecognizer.RecognizeAsync();
+            //    speechText = speechRecognitionResult.Text;
+            //}
+            //catch
+            //{
+            //    return;
+            //}
+            //var child = Scene.CreateChild(Guid.NewGuid().ToString());
+            //child.Scale = new Vector3(1, 1f, 1) / 10;
 
-            child.Position = pos;
-            child.LookAt(dir, Vector3.UnitY, TransformSpace.Local);
-            child.Position = new Vector3(pos.X, pos.Y, pos.Z - .05f);
-            child.Rotate(new Quaternion(315f, 270f, 0f), TransformSpace.Local);
+            //child.Position = pos;
+            //child.LookAt(dir, Vector3.UnitY, TransformSpace.Local);
+            //child.Position = new Vector3(pos.X, pos.Y, pos.Z - .05f);
+            //child.Rotate(new Quaternion(315f, 270f, 0f), TransformSpace.Local);
 
-            var model = child.CreateComponent<StaticModel>();
-            model.Model = ResourceCache.GetModel("Data\\thumbtack.mdl");
-            var textNode = child.CreateChild("Text");
-            textNode.Rotate(new Quaternion(-315f, -270f, 0f), TransformSpace.Local);
-            var text = textNode.CreateComponent<Text3D>();
-            text.Text = speechText;
-            text.HorizontalAlignment = HorizontalAlignment.Center;
-            text.VerticalAlignment = VerticalAlignment.Center;
-            text.TextAlignment = HorizontalAlignment.Center;
-            text.SetFont(CoreAssets.Fonts.AnonymousPro, 20);
-            text.SetColor(Color.Green);
-            //text.Opacity = 0f;
+            //var model = child.CreateComponent<StaticModel>();
+            //model.Model = ResourceCache.GetModel("Data\\thumbtack.mdl");
+            //var textNode = child.CreateChild("Text");
+            //textNode.Rotate(new Quaternion(-315f, -270f, 0f), TransformSpace.Local);
+            //var text = textNode.CreateComponent<Text3D>();
+            //text.Text = speechText;
+            //text.HorizontalAlignment = HorizontalAlignment.Center;
+            //text.VerticalAlignment = VerticalAlignment.Center;
+            //text.TextAlignment = HorizontalAlignment.Center;
+            //text.SetFont(CoreAssets.Fonts.AnonymousPro, 20);
+            //text.SetColor(Color.Green);
+            ////text.Opacity = 0f;
 
-            BulbAddedDto bulb = new BulbAddedDto { ID = child.Name, Position = new Vector3Dto(pos.X, pos.Y, pos.Z), Text = speechText, Direction = new Vector3Dto(LeftCamera.Node.WorldDirection.X, LeftCamera.Node.WorldDirection.Y, LeftCamera.Node.WorldDirection.Z) };
+            //BulbAddedDto bulb = new BulbAddedDto { ID = child.Name, Position = new Vector3Dto(pos.X, pos.Y, pos.Z), Text = speechText, Direction = new Vector3Dto(LeftCamera.Node.WorldDirection.X, LeftCamera.Node.WorldDirection.Y, LeftCamera.Node.WorldDirection.Z) };
 
 
-            ExistingBulbs.TryAdd(bulb.ID, bulb);
+            //ExistingBulbs.TryAdd(bulb.ID, bulb);
         }
 
         public override unsafe void OnSurfaceAddedOrUpdated(SpatialMeshInfo surface, Model generatedModel)

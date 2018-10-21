@@ -67,6 +67,7 @@
     <Content Include="Data\drum.mdl" />
     <Content Include="Data\fuxcap.mdl" />
     <Content Include="Data\thumbtack.mdl" />
+    <Content Include="Data\LowPressurePipeLayer.mdl" />
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
