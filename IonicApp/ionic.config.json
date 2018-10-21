@@ -1,0 +1,13 @@
+{
+  "name": "tabs",
+  "integrations": {
+    "cordova": {}
+  },
+  "proxies": [
+    {
+      "path": "/api/v1",
+      "proxyUrl": "http://vacabonds.com/api/v1"
+    }
+  ],
+  "type": "ionic-angular"
+}

@@ -31,6 +31,7 @@ namespace SmartHome.HoloLens
 
     public class ScannerApp : HoloApplication
     {
+        public Node textNode;
         public Node lastNode;
         private bool _ShowElectrical = true;
         public bool ShowElectrical { get { return _ShowElectrical; }
@@ -180,6 +181,91 @@ namespace SmartHome.HoloLens
                 { "place outlet", PlaceOutletModel}
                 , {"remove", RemoveOutlet}
                 , {"place plumbing", PlacePipeModel}
+                , {"UP", () => {
+                    if (lastNode == null)
+                        return;
+                        Urho.Actions.FiniteTimeAction action = null;
+                        action = new MoveBy(1f, new Vector3(0, 0, 1));
+                        lastNode.RunActionsAsync(action);
+                    }
+                }
+                , {"DOWN", () => {
+                    if (lastNode == null)
+                        return;
+                        Urho.Actions.FiniteTimeAction action = null;
+                        action = new MoveBy(1f, new Vector3(0, 0, -1));
+                        lastNode.RunActionsAsync(action);
+                    }
+                }
+                , {"LEFT", () => {
+                    if (lastNode == null)
+                        return;
+                        Urho.Actions.FiniteTimeAction action = null;
+                        action = new MoveBy(1f, new Vector3(-1, 0, 0));
+                        lastNode.RunActionsAsync(action);
+                    }
+                }
+                , {"RIGHT", () => {
+                    if (lastNode == null)
+                        return;
+                        Urho.Actions.FiniteTimeAction action = null;
+                        action = new MoveBy(1f, new Vector3(1, 0, 0));
+                        lastNode.RunActionsAsync(action);
+                    }
+                }
+                , {"FORWARD", () => {
+                    if (lastNode == null)
+                        return;
+                        Urho.Actions.FiniteTimeAction action = null;
+                        action = new MoveBy(1f, new Vector3(0, 1, 0));
+                        lastNode.RunActionsAsync(action);
+                    }
+                }
+                , {"BACKWARD", () => {
+                    if (lastNode == null)
+                        return;
+                        Urho.Actions.FiniteTimeAction action = null;
+                        action = new MoveBy(1f, new Vector3(0, -1, 0));
+                        lastNode.RunActionsAsync(action);
+                    }
+                }
+                , {"BIGGER", () => {
+                    if (lastNode == null)
+                        return;
+                        Urho.Actions.FiniteTimeAction action = null;
+                        action = new ScaleBy(1f, 1.1f);
+                        lastNode.RunActionsAsync(action);
+                    }
+                }
+                , {"SMALLER", () => {
+                    if (lastNode == null)
+                        return;
+                        Urho.Actions.FiniteTimeAction action = null;
+                        action = new ScaleBy(1f, .9f);
+                        lastNode.RunActionsAsync(action);
+                    }
+                }
+                , {"DETAILS", () => {
+                    if (lastNode == null)
+                        return;
+                        textNode = LeftCamera.Node.CreateChild();
+                        textNode.Position = new Vector3(0, 0, -1);
+                        textNode.SetScale(0.1f);
+                        Text3D text = lastNode.CreateComponent<Text3D>();
+                        text.Text = "X:" + lastNode.Position.X.ToString() + " Y:" + lastNode.Position.Y.ToString() + "Z:" + lastNode.Position.Z.ToString() + " SCALE:" + lastNode.Scale.ToString();
+                        text.HorizontalAlignment = HorizontalAlignment.Center;
+                        text.VerticalAlignment = VerticalAlignment.Center;
+                        text.TextAlignment = HorizontalAlignment.Center;
+                        text.SetFont(CoreAssets.Fonts.AnonymousPro, 20);
+                        text.SetColor(Color.Green);
+                    }
+                }
+                , {"CLEAR", () => {
+                    if (lastNode == null)
+                        return;
+                        textNode.Remove();
+                    }
+                }
                 , {"X RAY", () =>
                 {
 
@@ -267,6 +353,7 @@ namespace SmartHome.HoloLens
             //timer = new System.Threading.Timer(new System.Threading.TimerCallback(CheckStatus), null, 5000, 5000);
 
         }
+
 
         private async void ShowXaml()
         {
@@ -498,7 +585,10 @@ namespace SmartHome.HoloLens
             base.OnUpdate(timeStep);
             DirectionalLight.Node.SetDirection(LeftCamera.Node.Direction);
 
-            HandleMovementByKeyPress(Input, 1f);
+            var input = Input;
+
+            const float duration = 1f; //2s
+            HandleMovementByKeyPress(input, duration);
 
         }
 
