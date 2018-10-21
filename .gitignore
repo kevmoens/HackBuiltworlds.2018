@@ -10,3 +10,4 @@ SmartHome.Service/obj/Debug/*
 SmartHome.Service/bin/*
 Shared/obj/Debug/*
 Shared/bin/Debug/*
+*node_modules/*
