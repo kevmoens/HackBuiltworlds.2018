@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController } from 'ionic-angular';
+import { NavController, AlertController, NavParams } from 'ionic-angular';
 import { ApiProvider } from '../../providers/api/api';
+import { TransformReview } from '../../models/api';
 
 @Component({
   selector: 'page-ratetransform',
@@ -9,8 +10,14 @@ import { ApiProvider } from '../../providers/api/api';
 export class RateTransformPage {
 
   criterias;
+  transformid;
   constructor(public navCtrl: NavController, 
-    public api: ApiProvider, public alertCtrl: AlertController) {
+    public api: ApiProvider, public alertCtrl: AlertController,
+    public navParams: NavParams) {
+      this.transformid = navParams.get("transformid");
+  }
+
+  ionViewDidLoad() {
     
   }
 
@@ -29,6 +36,7 @@ export class RateTransformPage {
   }
 
   rateTransformation() {
+    
     let alert = this.alertCtrl.create({
       title: 'Success',
       subTitle: 'Rating Complete',

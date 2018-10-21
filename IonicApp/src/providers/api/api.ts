@@ -55,7 +55,7 @@ export class ApiProvider {
     };
 
     return new Promise(resolve => {
-      this.http.post(`${this.url}transform?name=${transform.Name}&type_id=${body.type_id}&description=${body.description}`, transform, {})
+      this.http.post(`${this.url}transform?name=${transform.name}&type_id=${body.type_id}&description=${body.description}`, transform, {})
       .subscribe(data => {
         resolve()
       },

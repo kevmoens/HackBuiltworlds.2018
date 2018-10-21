@@ -34,13 +34,33 @@ export class SwipeTransformPage {
       for(let i=0; i<this.transforms.length; i++){
         console.log(this.transforms[i]); //use i instead of 0
         this.transforms[i]["img"] = this.imgList[index]
+        if(this.transforms[i]["description"] == "undefined") {
+          this.transforms[i]["description"] = "The best Floorplan";
+        }
       }
     }).catch(err => {
       console.log('Error calling GetTransforms: ' + err.Error);
     })
   }
 
-  imgClick() {
-    this.navCtrl.push(RateTransformPage);
+  ionViewDidLoad() {
+    this.api.GetTransforms().then(transformList => {
+      this.transforms = transformList;
+      let index = 0
+      for(let i=0; i<this.transforms.length; i++){
+        console.log(this.transforms[i]); //use i instead of 0
+        this.transforms[i]["img"] = this.imgList[index]
+        if(this.transforms[i]["description"] == "undefined") {
+          this.transforms[i]["description"] = "The best Floorplan";
+        }
+      }
+    }).catch(err => {
+      console.log('Error calling GetTransforms: ' + err.Error);
+    })
+  }
+
+  imgClick(id) {
+    console.log(id)
+    this.navCtrl.push(RateTransformPage, {transformid: id });
   }
 }

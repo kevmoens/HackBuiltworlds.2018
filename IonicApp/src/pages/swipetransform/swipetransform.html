@@ -11,7 +11,7 @@
     <ion-item>
       <ion-slides>
         <ion-slide *ngFor="let transform of transforms">
-            <img [src]="transform.img" class="full-image" (click)="imgClick()">
+            <img [src]="transform.img" class="full-image" (click)="imgClick(transform.id)">
             <h1>{{transform.name}} </h1>
             <h2>{{transform.description}} </h2>
         </ion-slide>

@@ -1,7 +1,7 @@
 export class Transform {
     idTransform: number
-    Name: string
-    Description: string
+    name: string
+    description: string
     
     constructor(values: Object = {}) {
         Object.assign(this, values);
@@ -16,3 +16,4 @@ export class Criteria {
     created_at: Date
     updated_at: Date
 }
+

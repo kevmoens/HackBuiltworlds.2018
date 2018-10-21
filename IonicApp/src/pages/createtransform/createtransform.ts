@@ -8,7 +8,10 @@ import { Transform } from '../../models/api';
   templateUrl: 'createtransform.html'
 })
 export class CreateTransformPage {
+transformName:string;
+transformDescription:string;
 
+  
   constructor(public navCtrl: NavController, public alertCtrl: AlertController, public api: ApiProvider) {
 
   }
@@ -19,10 +22,12 @@ export class CreateTransformPage {
 
   createTransform() {
     const transform:Transform = new Transform();
-    transform.Name = "Floorplan 1";
-    transform.Description = "Amazing template";
+    transform.name = this.transformName;
+    transform.description = this.transformDescription;
     
-    this.api.CreateTransform(transform);
+    this.api.CreateTransform(transform).then(response => {
+      response
+    });
     let alert = this.alertCtrl.create({
       title: 'Success',
       subTitle: 'Transform Submitted',
