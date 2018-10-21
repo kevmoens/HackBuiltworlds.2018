@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-background="http://i.giphy.com/90F8aUepslB84.gif">
+					<h1 style="text-shadow: 2px 2px #000000;">Batman and Holo Friends</h1>
+					<h3 style="text-shadow: 2px 2px #000000;">Structural View Layering</h3>
+					<p style="text-shadow: 2px 2px #000000;">
+						<small>Kevin, Jacob, Mikah, Eric, Redar, Tommy</small>
+					</p>
+				</section>
+				<section data-background="">
+					<img src="img/lemur.jpg" width="30%" height="30%"  />
+					<p style="text-shadow: 2px 2px #000000;">
+						Everyone's got Problems
+					</p>
+					<p style="text-shadow: 2px 2px #000000;">
+						Let's solve them
+					</p>
+				</section>
+				<section>
+					<img width="200" height="200" data-src="favicon.png"> </img>
+					<h2>Layer Cake</h2>
+				</section>
+				<section>
+					<h2>Built With Ionic</h2>
+					<img width="200" height="200" data-src="http://s3.amazonaws.com/nlga/uploads/item/image/24639/i.png" alt="Up arrow" > </img>
+					<p>
+						Ionic Framework allows us to deploy on iOS and Android with the same code base.  Headquarters in Madison.
+					</p>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
