@@ -6,11 +6,23 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="#FFFFFF">
+    Background="#FFFFFF"
+    xmlns:local="SmartHome.HoloLens"
+    >
 
     <SwapChainPanel x:Name="DXSwapChainPanel">
         <Grid x:Name="ExtendedSplashGrid" Background="#FFFFFF" HorizontalAlignment="Center">
-            <Button Content="3D" Width="200" Height="160" FontSize="100" Foreground="BlueViolet" Click="OnSwitch2UrhoButton_Clicked" ></Button>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Filter" HorizontalAlignment="Center" FontSize="75"/>
+            <StackPanel Grid.Row="1">
+                <ToggleSwitch x:Name="tgElectrical" OnContent="Electrical Visible" OffContent="Electrical Hidden" FontSize="50" IsOn="{x:Bind ShowElectrical}" Toggled="ElectricalToggled"  />
+                <ToggleSwitch x:Name="tgPlumbing" OnContent="Plumbing Visible" OffContent="Plumbing Hidden" FontSize="50" IsOn="{x:Bind ShowPlumbing}" Toggled="PlumbingToggled"/>
+            </StackPanel>
+            <Button Grid.Row="2" Content="Filter" FontSize="50" HorizontalAlignment="Center" Foreground="BlueViolet" Margin="20" Click="OnSwitch2UrhoButton_Clicked"/>
         </Grid>
     </SwapChainPanel>
 </Page>
