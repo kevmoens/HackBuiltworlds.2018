@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Browse Transforms
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-slides>
+        <ion-slide *ngFor="let transform of transforms">
+            <img [src]="transform.img" class="full-image" (click)="imgClick()">
+            <h1>{{transform.name}} </h1>
+            <h2>{{transform.description}} </h2>
+        </ion-slide>
+      </ion-slides>
+    </ion-item>
+  </ion-list>
+</ion-content>

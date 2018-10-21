@@ -1,0 +1,157 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Create Transform
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div class = "list">
+    <ion-item>
+      <ion-label floating>Name</ion-label>
+       <ion-input type="text" placeholder="Name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Type</ion-label>
+      <ion-input type="text" placeholder="Type"></ion-input>
+    </ion-item>
+    <ion-row text-center>
+      <ion-col text-right>
+        <ion-label>
+          <ion-input type="text" placeholder="Image File"></ion-input>
+        </ion-label>
+      </ion-col>
+      <ion-col text-right>
+        <button ion-button (click)="uploadClick()">Upload</button>
+      </ion-col>
+    </ion-row>      
+    <ion-item text-center>
+      <img src="/assets/imgs/floorplan.jpg" />
+    </ion-item>
+    <ion-row>
+      <br />
+      <br />
+    </ion-row>
+    <ion-row>
+      <ion-col text-center>
+          <h1>		
+            Criteria
+          </h1>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-label>		
+        Functionality
+      </ion-label>
+      <rating [(ngModel)]="functionRate" 
+        readOnly="false"
+        max="5" 
+        emptyStarIconName="ios-bulb-outline"
+        halfStarIconName="ios-bulb"
+        starIconName="ios-bulb"
+        nullable="false"
+        (ngModelChange)="onFunctionChange($event)">
+      </rating>
+    </ion-row>
+    <ion-row>
+      <ion-label>		
+        Design
+      </ion-label>
+      <rating [(ngModel)]="designRate" 
+        readOnly="false"
+        max="5" 
+        emptyStarIconName="ios-bulb-outline"
+        halfStarIconName="ios-bulb"
+        starIconName="ios-bulb"
+        nullable="false"
+        (ngModelChange)="onFunctionChange($event)">
+      </rating>
+    </ion-row>
+    <ion-row>
+      <ion-label>		
+        Environment
+      </ion-label>
+      <rating [(ngModel)]="environmentRate" 
+        readOnly="false"
+        max="5" 
+        emptyStarIconName="ios-bulb-outline"
+        halfStarIconName="ios-bulb"
+        starIconName="ios-bulb"
+        nullable="false"
+        (ngModelChange)="onFunctionChange($event)">
+      </rating>
+    </ion-row>
+    <ion-row>
+      <ion-label>		
+        Cost
+      </ion-label>
+      <rating [(ngModel)]="costRate" 
+        readOnly="false"
+        max="5" 
+        emptyStarIconName="ios-bulb-outline"
+        halfStarIconName="ios-bulb"
+        starIconName="ios-bulb"
+        nullable="false"
+        (ngModelChange)="onFunctionChange($event)">
+      </rating>
+    </ion-row>
+    <ion-row>
+      <ion-label>		
+        Labor / Planning
+      </ion-label>
+      <rating [(ngModel)]="laborRate" 
+        readOnly="false"
+        max="5" 
+        emptyStarIconName="ios-bulb-outline"
+        halfStarIconName="ios-bulb"
+        starIconName="ios-bulb"
+        nullable="false"
+        (ngModelChange)="onFunctionChange($event)">
+      </rating>
+    </ion-row>
+    <ion-row>
+      <ion-label>		
+        Security
+      </ion-label>
+      <rating [(ngModel)]="securityRate" 
+        readOnly="false"
+        max="5" 
+        emptyStarIconName="ios-bulb-outline"
+        halfStarIconName="ios-bulb"
+        starIconName="ios-bulb"
+        nullable="false"
+        (ngModelChange)="onFunctionChange($event)">
+      </rating>
+    </ion-row>
+    <ion-row>
+      <ion-label>		
+        Materials
+      </ion-label>
+      <rating [(ngModel)]="materialsRate" 
+        readOnly="false"
+        max="5" 
+        emptyStarIconName="ios-bulb-outline"
+        halfStarIconName="ios-bulb"
+        starIconName="ios-bulb"
+        nullable="false"
+        (ngModelChange)="onFunctionChange($event)">
+      </rating>
+    </ion-row>
+    <ion-row>
+      <ion-label>		
+        Complexity
+      </ion-label>
+      <rating [(ngModel)]="complexityRate" 
+        readOnly="false"
+        max="5" 
+        emptyStarIconName="ios-bulb-outline"
+        halfStarIconName="ios-bulb"
+        starIconName="ios-bulb"
+        nullable="false"
+        (ngModelChange)="onFunctionChange($event)">
+      </rating>
+    </ion-row>
+  </div>
+  <button ion-button full (click)="createTransform()">Create Transform</button>
+</ion-content>
